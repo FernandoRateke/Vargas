@@ -94,3 +94,16 @@
 /* Keep transcript paragraphs readable inside the original disc grid. */
 .disco-bloco .audio-transcricao p { max-width: none; margin: 16px 0; }
 .disco-bloco { align-content: start; }
+
+/* Scroll-driven photographic timeline; all existing copy stays in the HTML. */
+.republica-percurso { position: relative; width: 100vw; margin-left: calc(50% - 50vw); }
+.republica-palco { position: sticky; top: 0; height: 100svh; overflow: clip; perspective: 1500px; perspective-origin: 50% 46%; }
+.republica-palco .governos-linha { position: absolute; inset: 0; display: block; margin: 0; padding: 0; border: 0; transform-style: preserve-3d; transform: rotateX(9deg) rotateZ(-2deg); }
+.republica-palco .governo-mini { position: absolute; left: 50%; top: 48%; width: var(--retrato-largura); padding: clamp(10px,1vw,14px); transform-style: preserve-3d; will-change: transform,opacity; transition: border-color .18s; box-shadow: 7px 14px 26px rgba(45,30,10,.25); }
+.republica-palco .governo-mini img { width: 100%; height: var(--retrato-altura); aspect-ratio: auto; object-fit: cover; }
+.republica-palco .governo-mini::after { content: ''; position: absolute; inset: 0; background: rgba(var(--nevoa),var(--retrato-nevoa,0)); pointer-events: none; }
+.republica-palco .governo-num { margin: 0 0 8px; }
+.republica-palco .governo-anos { font-size: .8rem; margin-top: 10px; }
+.republica-palco .governo-mini strong { font-size: clamp(1.2rem,2vw,1.7rem); margin: 5px 0 10px; }
+.republica-palco .governo-abrir { font-size: .72rem; }
+@media print { .republica-percurso { display: none !important; } }
