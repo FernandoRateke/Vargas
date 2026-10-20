@@ -199,7 +199,7 @@
     measure();
   }
   // Keep pointer focus from scrolling transformed cards away before click.
-  rail.addEventListener('pointerdown', event => {
+  rail.addEventListener('mousedown', event => {
     const card = event.target.closest('.governo-mini');
     if (!path || !card || event.button !== 0) return;
     event.preventDefault();
