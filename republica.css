@@ -107,3 +107,6 @@
 .republica-palco .governo-mini strong { font-size: clamp(1.2rem,2vw,1.7rem); margin: 5px 0 10px; }
 .republica-palco .governo-abrir { font-size: .72rem; }
 @media print { .republica-percurso { display: none !important; } }
+
+.republica-palco .governos-linha { pointer-events: none; }
+.republica-palco .governo-mini { pointer-events: auto; }
