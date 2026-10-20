@@ -1,0 +1,96 @@
+/* Extension of the paper-and-archive visual language. */
+.republica { background: var(--papel-2, #E1D8C4) var(--grao); border-block: 1px solid var(--fio-claro); }
+.republica-abertura { max-width: 760px; margin: 0 auto 44px; text-align: center; }
+.republica-abertura h2 { font: 500 clamp(3.2rem, 8vw, 6.5rem)/1.02 var(--font-display); margin: 24px 0; }
+.republica h2 em, .republica h3 em { font-weight: 400; }
+.republica-subtitulo { font: italic clamp(1.2rem, 3vw, 1.6rem)/1.4 var(--font-display); }
+.arquivo-botao { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--tinta-2); padding: 10px 16px; background: transparent; color: var(--tinta); font: .85rem/1.3 var(--font-arquivo); text-decoration: none; cursor: pointer; }
+.arquivo-botao:hover { background: var(--tinta); color: var(--cartao); }
+.republica-nota { padding: 20px 24px; border-left: 3px solid var(--carimbo); background: var(--cartao); font-size: .88rem; line-height: 1.75; }
+.republica-legenda { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-top: 48px; }
+.republica-legenda>p:last-child { font: .75rem/1.5 var(--font-arquivo); color: var(--tinta-2); max-width: 42ch; }
+.governos-linha { display: grid; grid-template-columns: repeat(9,minmax(0,1fr)); gap: 10px; padding: 22px 0 28px; border-top: 1px solid var(--fio); }
+.governo-mini { position: relative; display: flex; flex-direction: column; padding: 8px; border: 1px solid var(--fio-claro); background: var(--cartao); text-decoration: none; box-shadow: 2px 3px 0 #1d191210; transition: transform .18s, border-color .18s; }
+.governo-mini:hover, .governo-mini:focus-visible { transform: translateY(-5px); border-color: var(--carimbo); }
+.governo-num { font: .7rem var(--font-arquivo); margin-bottom: 10px; color: var(--carimbo); }
+.governo-mini img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%; filter: grayscale(1) sepia(.25); }
+.governo-anos { font: .7rem/1.4 var(--font-arquivo); margin-top: 12px; white-space: nowrap; }
+.governo-mini strong { font: 600 .95rem/1.25 var(--font-display); margin: 6px 0 14px; }
+.governo-abrir { margin-top: auto; font: .65rem/1.3 var(--font-arquivo); color: var(--tinta-2); }
+.republica-pergunta { padding: 22px 0 48px; text-align: center; }
+.republica-pergunta p { font: italic clamp(1.5rem,3.6vw,2.4rem)/1.3 var(--font-display); margin: 12px 0; }
+.governo-ficha { padding: 36px 0; border-top: 1px solid var(--fio-claro); scroll-margin-top: 80px; }
+.governo-ficha h3 { font: 500 clamp(2.2rem,5vw,4rem)/1.1 var(--font-display); margin: 16px 0; }
+.governo-periodo { font: .9rem/1.5 var(--font-arquivo); color: var(--carimbo); }
+.governo-chamada { font: italic 1.4rem/1.5 var(--font-display); margin-bottom: 30px; }
+.governo-conteudo { display: grid; grid-template-columns: minmax(180px,.7fr) minmax(0,1.3fr); gap: clamp(24px,5vw,64px); }
+.governo-conteudo figure { margin: 0; }
+.governo-conteudo figure img { width: 100%; max-height: 500px; object-fit: contain; background: var(--cartao); padding: 12px; border: 1px solid var(--fio-claro); filter: grayscale(1) sepia(.2); }
+.governo-conteudo figcaption { font: .75rem/1.6 var(--font-arquivo); margin-top: 14px; color: var(--tinta-2); }
+.governo-texto h4 { font: 700 .78rem/1.4 var(--font-arquivo); text-transform: uppercase; letter-spacing: .06em; color: var(--carimbo); margin: 0 0 8px; }
+.governo-texto p { margin: 0 0 26px; }
+.governo-olhares { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: 28px; background: var(--cartao); border-block: 1px solid var(--fio-claro); margin-top: 24px; }
+.governo-olhares p:last-child { margin-bottom: 0; }
+.governo-fontes { font: .8rem/1.7 var(--font-arquivo); margin-top: 24px; }
+.governo-dialogos { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--fio-claro); padding-top: 22px; margin-top: 28px; font: .9rem/1.5 var(--font-arquivo); }
+.governo-dialog { width: min(1060px,calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid var(--fio-claro); color: var(--tinta); background: var(--papel) var(--grao); }
+.governo-dialog::backdrop { background: #1d1912bd; backdrop-filter: blur(3px); }
+.governo-dialog-barra { position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 24px; background: var(--papel); border-bottom: 1px solid var(--fio-claro); }
+.governo-dialog-barra button { flex-shrink: 0; }
+#governo-dialog-corpo { padding: 0 clamp(20px,5vw,56px) 24px; }
+.governo-dialog .governo-ficha { border: 0; }
+.republica-comparacao { border-top: 3px double var(--fio); padding-top: 40px; scroll-margin-top: 80px; }
+.republica-comparacao h3 { font: 500 clamp(2rem,4vw,3rem)/1.15 var(--font-display); margin: 16px 0; }
+.republica-comparacao>p:not(.rotulo) { max-width: 75ch; }
+.governos-tabela { width: 100%; border-collapse: collapse; margin: 30px 0; text-align: left; font-size: .86rem; line-height: 1.65; }
+.governos-tabela caption { text-align: left; font: .75rem/1.5 var(--font-arquivo); padding-bottom: 12px; }
+.governos-tabela thead { background: var(--tinta); color: var(--cartao); font: .75rem/1.5 var(--font-arquivo); }
+.governos-tabela th, .governos-tabela td { padding: 16px; border-bottom: 1px solid var(--fio-claro); vertical-align: top; }
+.governos-tabela tbody tr:nth-child(odd) { background: #f5f0e577; }
+.governos-tabela tbody th { width: 21%; font-weight: 400; }
+.governos-tabela td:nth-child(2) { white-space: nowrap; font-family: var(--font-arquivo); }
+.republica-fecho { margin: 44px auto 0; text-align: center; font-size: 1.1rem; }
+.audio-controles { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; width: 100%; margin: 18px 0; }
+.audio-controles button { min-height: 44px; min-width: 54px; padding: 8px; font: .8rem var(--font-arquivo); border: 1px solid var(--fio-claro); background: var(--cartao); color: var(--tinta); cursor: pointer; }
+.audio-controles label { grid-column: 1/-1; font: .75rem var(--font-arquivo); text-align: left; }
+.audio-controles input { width: 100%; min-height: 44px; accent-color: var(--carimbo); cursor: pointer; }
+.audio-controles button:disabled { opacity: .45; cursor: default; }
+.audio-erro { font-size: .85rem; color: var(--carimbo); }
+.audio-transcricao { width: 100%; text-align: left; margin: 24px 0; padding: 16px 0; border-block: 1px solid var(--fio-claro); }
+.audio-transcricao summary { cursor: pointer; font: .9rem/1.5 var(--font-arquivo); padding: 8px 0; }
+.audio-transcricao .transcricao-nota { font: .75rem/1.6 var(--font-arquivo); color: var(--tinta-2); }
+.audio-transcricao p { font-size: .9rem; line-height: 1.85; }
+.audio-transcricao .audio-marca { display: inline-block; font: .75rem var(--font-arquivo); color: var(--carimbo); background: none; border: 1px solid var(--fio-claro); padding: 10px; min-height: 44px; margin-right: 8px; cursor: pointer; }
+.audio-transcricao [data-ativo="true"] { border-left: 2px solid var(--carimbo); padding-left: 12px; }
+.disco-bloco audio[controls] { width: 100%; margin: 12px 0; }
+.ficha-dialog__barra { flex-wrap: wrap; }
+@media(max-width:1000px) { .governos-linha { grid-template-columns: repeat(5,minmax(0,1fr)); } }
+@media(max-width:640px) {
+ .governos-linha { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+ .republica-legenda { display: block; }
+ .republica-abertura { text-align: left; }
+ .republica-nota { padding: 16px; }
+ .governo-conteudo { grid-template-columns: 1fr; }
+ .governo-conteudo figure { max-width: 280px; margin-inline: auto; }
+ .governo-olhares { grid-template-columns: 1fr; gap: 24px; padding: 20px; }
+ .governo-dialog { width: 100%; max-height: 100dvh; height: 100dvh; margin: 0; border: 0; }
+ .governo-dialog-barra { padding: 10px 16px; }
+ .governo-dialog-barra>.rotulo { max-width: 21ch; font-size: .65rem; }
+ .governos-tabela { font-size: .9rem; }
+ .governos-tabela, .governos-tabela tbody { display: block; }
+ .governos-tabela thead { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+ .governos-tabela tr { display: block; margin-bottom: 18px; border: 1px solid var(--fio-claro); background: var(--cartao); }
+ .governos-tabela tbody th, .governos-tabela td { display: block; width: 100%; padding: 12px 16px; }
+ .governos-tabela tbody th { font: 500 1.4rem var(--font-display); background: var(--cartao); }
+ .governos-tabela td:last-child { border-bottom: 0; }
+ .governos-tabela td::before { content: attr(data-label); display: block; font: .7rem/1.4 var(--font-arquivo); text-transform: uppercase; margin-bottom: 6px; color: var(--tinta-2); }
+}
+@media(prefers-reduced-motion:reduce) { .governo-mini { transition: none; } .governo-mini:hover { transform: none; } }
+@media print {
+ .governos-linha, .governo-dialog, .republica-fichas, .republica-pergunta { display: none !important; }
+ .governos-tabela { font-size: 10pt; } .governos-tabela tr { break-inside: avoid; }
+ .republica { background: white; } .republica-comparacao { border: 0; }
+}
+/* Keep transcript paragraphs readable inside the original disc grid. */
+.disco-bloco .audio-transcricao p { max-width: none; margin: 16px 0; }
+.disco-bloco { align-content: start; }
