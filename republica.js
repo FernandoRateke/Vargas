@@ -199,11 +199,12 @@
     measure();
   }
   // Keep pointer focus from scrolling transformed cards away before click.
-  rail.addEventListener('mousedown', event => {
+  rail.addEventListener('pointerdown', event => {
     const card = event.target.closest('.governo-mini');
     if (!path || !card || event.button !== 0) return;
     event.preventDefault();
     card.focus({ preventScroll: true });
+    card.click();
   });
   rail.addEventListener('keydown', event => {
     if (!path || event.altKey || event.ctrlKey || event.metaKey) return;
