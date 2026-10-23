@@ -226,3 +226,13 @@
   reduced.addEventListener('change', setup);
   setup();
 })();
+
+/* Navigation between the two exhibitions, outside the original chapter. */
+(function () {
+  const back = document.createElement('a');
+  back.className = 'museu-voltar';
+  back.href = 'index.html';
+  back.textContent = '← Exposições';
+  back.setAttribute('aria-label', 'Voltar à escolha de exposições');
+  document.body.append(back);
+})();

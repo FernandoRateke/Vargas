@@ -110,3 +110,7 @@
 
 .republica-palco .governos-linha { pointer-events: none; }
 .republica-palco .governo-mini { pointer-events: auto; }
+
+.museu-voltar { position:fixed; bottom:18px; left:18px; z-index:80; padding:9px 15px; background:#f5f0e5; color:#1d1912; border:1px solid #c9bda5; font:14px "Courier Prime",monospace; text-decoration:none; box-shadow:2px 3px 0 #1d191218; }
+.museu-voltar:focus-visible { outline:2px solid #8c2c1e; outline-offset:3px; }
+@media print { .museu-voltar { display:none; } }
