@@ -51,3 +51,36 @@
   });
   dialog.addEventListener('close', () => { if (opener) opener.focus({ preventScroll: true }); });
 })();
+
+(function () {
+  const audio = document.getElementById('radio-audio');
+  const toggle = document.getElementById('radio-toggle');
+  const status = document.getElementById('radio-status');
+  if (!audio || !toggle) return;
+  toggle.hidden = false;
+  document.querySelector('.radio-seek').hidden = false;
+  toggle.addEventListener('click', async () => {
+    if (!audio.paused) { audio.pause(); return; }
+    status.textContent = 'Carregando o programa…';
+    try { await audio.play(); }
+    catch (error) { status.textContent = 'Use o link da Rádio Senado para ouvir.'; }
+  });
+  audio.addEventListener('play', () => {
+    toggle.textContent = 'Ⅱ Pausar o rádio';
+    status.textContent = 'Rádio Senado · Em reprodução';
+    document.querySelector('.radio-set').classList.add('radio-playing');
+  });
+  function paused() {
+    toggle.textContent = '▶ Ligar o rádio';
+    status.textContent = audio.ended ? 'Programa concluído' : 'Reprodução pausada';
+    document.querySelector('.radio-set').classList.remove('radio-playing');
+  }
+  audio.addEventListener('pause', paused);
+  audio.addEventListener('ended', paused);
+  audio.addEventListener('error', () => { status.textContent = 'Áudio indisponível. Abra a Rádio Senado.'; });
+  function seek(delta) {
+    if (Number.isFinite(audio.duration)) audio.currentTime = Math.min(audio.duration, Math.max(0, audio.currentTime + delta));
+  }
+  document.getElementById('radio-back').addEventListener('click', () => seek(-10));
+  document.getElementById('radio-forward').addEventListener('click', () => seek(10));
+})();
