@@ -65,7 +65,7 @@
     try { await audio.play(); }
     catch (error) { status.textContent = 'Use o link da Rádio Senado para ouvir.'; }
   });
-  audio.addEventListener('play', () => {
+  audio.addEventListener('playing', () => {
     toggle.textContent = 'Ⅱ Pausar o rádio';
     status.textContent = 'Rádio Senado · Em reprodução';
     document.querySelector('.radio-set').classList.add('radio-playing');
