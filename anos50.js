@@ -199,12 +199,13 @@
         videoId: 'pqI4At0XFNc',
         playerVars: { origin: location.origin, playsinline: 1, rel: 0 },
         events: {
-          onReady: event => { ready = true; event.target.playVideo(); },
+          onReady: event => { ready = true; event.target.getIframe().title = 'Baden Powell na residência de Neusa França, cerca de 1959 · Instituto Piano Brasileiro'; event.target.playVideo(); },
           onStateChange: event => {
             const playing = event.data === 1;
+            const buffering = event.data === 3;
             document.querySelector('.radio-set').classList.toggle('radio-playing', playing);
-            toggle.textContent = playing ? 'Ⅱ Pausar o rádio' : '▶ Ligar o rádio';
-            status.textContent = playing ? 'Baden Powell · c. 1959' : event.data === 0 ? 'Gravação concluída' : 'Use ▶ no player para ouvir';
+            toggle.textContent = playing ? 'Ⅱ Pausar o rádio' : buffering ? 'Carregando…' : '▶ Ligar o rádio';
+            status.textContent = playing ? 'Baden Powell · c. 1959' : buffering ? 'Carregando registro no IPB…' : event.data === 0 ? 'Gravação concluída' : 'Use ▶ no player para ouvir';
           },
           onError: fail
         }
